@@ -21,7 +21,8 @@ import lombok.ToString;
 @Document(collection="empleados")
 public class Empleado {
 	@Id
-	// @JsonSerialize(using=ToStringSerializer.class) <- si al montar el JSON no lo tienes(el id) con el timestamp y la otra parte, te lo pone con numeros y ya serializado con solo los numeros (y no en dos partes como antes: timestamp y la otra -- no me acuerdo de la otra parte --)
+	@JsonSerialize(using=ToStringSerializer.class) // <- si al montar el JSON no lo tienes(el id) con el timestamp y date,
+	// te lo pone con numeros y ya serializado con solo los numeros (y no en dos partes como antes: timestamp y date)
 	private ObjectId id;
 	
 	private String nombre;
